@@ -1,0 +1,31 @@
+---
+description: Always consult and maintain the generated codebase index
+alwaysApply: true
+---
+
+# Codebase index (read this before searching)
+
+This repo has a pre-generated index at `.cursor/index/`. It exists so you do
+**not** waste turns running `ls`, `find`, `grep`, or semantic search to locate
+things that are already mapped.
+
+## Before you search, look here first
+
+1. `.cursor/index/MANIFEST.md` — overview + how to build/run/test + entry points.
+2. `.cursor/index/SYMBOLS.md` — every function/type/export with exact `file:line`.
+3. `.cursor/index/IMPORTS.md` — dependency graph (who imports what).
+4. `.cursor/index/CALLGRAPH.md` — Go call graph (who calls which function).
+5. `.cursor/index/ENDPOINTS.md` — HTTP routes (Go routers + Next.js).
+6. `.cursor/index/TREE.md` — annotated directory tree.
+7. `.cursor/index/index.json` — machine-readable version of all of the above.
+
+Only fall back to grep/semantic search if the index does not contain the answer
+(e.g. it's stale, or the symbol is genuinely new).
+
+## Keep it fresh
+
+- If you suspect the index is out of date, run `repomap check`. A non-zero exit
+  means files changed since the last build.
+- After you add, rename, move, or delete symbols/files/routes, run
+  `repomap build` to regenerate the index before finishing your task.
+- Never hand-edit files in `.cursor/index/` — they are generated output.

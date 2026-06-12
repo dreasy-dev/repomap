@@ -1,0 +1,15 @@
+# Compiled binary
+/repomap
+repomap
+
+# Go build/test artifacts
+*.exe
+*.test
+*.out
+
+# Generated index output (the tool's own output should not be committed here)
+.cursor/
+
+# OS junk
+.DS_Store
+Thumbs.db
